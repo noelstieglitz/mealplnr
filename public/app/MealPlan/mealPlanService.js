@@ -16,7 +16,7 @@ function mealPlanService($http) {
     ////////////
 
     function create(date) {
-        alert(date);
+       return $http.post('/api/mealplans', {startDate: date});
     }
 
 }

@@ -1,10 +1,9 @@
  <div ui-view="createmealplan">
-   <!--<div ng-controller="MealController as vm" ng-cloak="">-->
       <md-content>
           <md-toolbar>
              <div class="md-toolbar-tools">
           	   	<h4>Create a meal plan</h4>
-        	   </div>
+             </div>
         </md-toolbar>
         <form name="myForm">
           <md-datepicker name="dateField" ng-model="vm.mealPlanDate" md-placeholder="Enter date" required md-date-filter="vm.onlySunday"></md-datepicker>

@@ -3,7 +3,6 @@ angular.module('MealPlnr').controller('MealPlanController', MealPlanController);
 MealPlanController.$inject = ['mealPlanService'];
 
 function MealPlanController(mealPlanService) {
-  debugger;
   var vm = this;
   vm.mealPlanDate = nextSunday();
   vm.onlySunday = onlySunday;
@@ -15,7 +14,10 @@ function MealPlanController(mealPlanService) {
   }
 
   function createMealPlan() {
-    mealPlanService.create(vm.mealPlanDate);
+    mealPlanService.create(vm.mealPlanDate).then(
+      function(mealPlan){
+        mealPlan.data._id
+      });
   }
 
   function nextSunday() {

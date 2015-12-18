@@ -16,5 +16,11 @@ function routeFunction($stateProvider, $urlRouterProvider){
 			templateUrl: 'partials/createmealplan.html',
 			controller: 'MealPlanController',
 			controllerAs: 'vm'
-		});
+		})
+		.state('mealplandetail', {
+        	url: "/mealplan/:mealPlanId",
+			templateUrl: 'partials/mealplandetail.html',
+			controller: 'MealPlanDetailController',
+			controllerAs: 'vm'
+    	});
 }
