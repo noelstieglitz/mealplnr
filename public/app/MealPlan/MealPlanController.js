@@ -1,23 +1,23 @@
 angular.module('MealPlnr').controller('MealPlanController', MealPlanController);
 
-MealPlanController.$inject = ['mealPlanService'];
+MealPlanController.$inject = ['mealPlanService', '$state'];
 
-function MealPlanController(mealPlanService) {
+function MealPlanController(mealPlanService, $state) {
   var vm = this;
   vm.mealPlanDate = nextSunday();
   vm.onlySunday = onlySunday;
   vm.createMealPlan = createMealPlan;
 
-  function onlySunday(date) {
-    var day = date.getDay();
-    return day === 0;
-  }
-
   function createMealPlan() {
     mealPlanService.create(vm.mealPlanDate).then(
       function(mealPlan){
-        mealPlan.data._id
+        $state.go("mealplandetail", { mealPlanId: mealPlan._id})
       });
+  }
+  
+  function onlySunday(date) {
+    var day = date.getDay();
+    return day === 0;
   }
 
   function nextSunday() {

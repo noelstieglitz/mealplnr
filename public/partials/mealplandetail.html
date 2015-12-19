@@ -1,10 +1,11 @@
  <div ui-view="mealplandetail">
    <md-toolbar>
-             <div class="md-toolbar-tools">
-          	   	<h4 layout-align="center start" >Meals for December 30th, 2015</h4>
-             </div>
+        <div class="md-toolbar-tools">
+          <h4>Meals for {{vm.week}}</h4>
+        </div>
     </md-toolbar>
-    <md-content class="md-padding" layout="row" layout-wrap="" layout-align="center start" layout-xs="column">
+    <div class="main">
+    <md-content class="md-padding" layout="column" layout-wrap="" layout-align="center start" layout-xs="column">
     <div flex="50" flex-sm="100" flex-xs="100" layout="column">
       <md-card>
         <md-card-title>
@@ -24,4 +25,5 @@
       </md-card>
     </div>
   </md-content>
+  </div>
 </div>

@@ -2,10 +2,11 @@
   'use strict';
 angular.module('MealPlnr').controller('MealPlanDetailController', MealPlanDetailController);
 
-MealPlanDetailController.$inject = ['mealPlanService'];
+MealPlanDetailController.$inject = ['mealPlanService', 'mealPlan'];
 
-function MealPlanDetailController(mealPlanService) {
+function MealPlanDetailController(mealPlanService, mealPlan) {
   var vm = this;
-  vm.week = "December 28th, 2015";
+  vm.mealPlan = mealPlan;
+  vm.week = moment(vm.mealPlan.startDate).format("MMMM Do YYYY");
 }
 })();

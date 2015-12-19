@@ -6,7 +6,10 @@
     <script src="/bower_components/angular-animate/angular-animate.js"></script>
     <script src="/bower_components/angular-aria/angular-aria.js"></script>
     <script src="/bower_components/angular-material/angular-material.min.js"></script>
+    <script src="/bower_components/angular-material-icons/angular-material-icons.min.js"></script>
+    <script src="/bower_components/moment/moment.js"></script>
     <link rel="stylesheet" href="/bower_components/angular-material/angular-material.css" />
+    <link rel="stylesheet" href="/bower_components/angular-material-icons/angular-material-icons.css" />
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="/content/css/site.css" />
     <script src="/app/app.js"></script>
@@ -14,11 +17,16 @@
     <script src="/app/MealPlan/MealPlanDetailController.js"></script>
     <script src="/app/MealPlan/mealPlanService.js"></script>
   </head>
-  <body ng-app="MealPlnr">
-    <!--TODO Sidebar and menu-->
-    <div class="md-toolbar-tools docs-toolbar-tools">
-      <header><h1>Meal Planner</h1></header> 
-    </div>
-    <div ui-view></div>
+  <body ng-app="MealPlnr" layout="row" ng-cloak>
+     <div flex layout="column" tabIndex="-1" role="main" class="md-whiteframe-z2">
+      <md-toolbar layout="row" class="md-whiteframe-z1">
+        <md-button class="menu" ng-click="ul.toggleList()" aria-label="Show Menu">
+          <ng-md-icon icon="menu"></ng-md-icon>
+        </md-button>
+        <h1>Meal Plnr</h1>
+        <!--<h4>Nobody has time for vowels and meal planning.</h4>-->
+      </md-toolbar>
+      <div ui-view></div>
+     </div>
   </body>
 </html>

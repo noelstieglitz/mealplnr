@@ -1,4 +1,4 @@
-var app = angular.module('MealPlnr', [ 'ui.router', 'ngAnimate', 'ngMaterial']);
+var app = angular.module('MealPlnr', [ 'ui.router', 'ngAnimate', 'ngMaterial', 'ngMdIcons']);
 
 app.config(['$stateProvider', '$urlRouterProvider', routeFunction]);
 
@@ -21,6 +21,11 @@ function routeFunction($stateProvider, $urlRouterProvider){
         	url: "/mealplan/:mealPlanId",
 			templateUrl: 'partials/mealplandetail.html',
 			controller: 'MealPlanDetailController',
-			controllerAs: 'vm'
+			controllerAs: 'vm',
+            resolve: {
+                mealPlan: ['mealPlanService', '$stateParams', function (mealPlanService, $stateParams) {
+                return mealPlanService.getById($stateParams.mealPlanId); // not then
+                }]
+            }
     	});
 }

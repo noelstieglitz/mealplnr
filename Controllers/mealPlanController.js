@@ -24,6 +24,11 @@ var mealPlanController = function(MealPlan, Meal, Recipe){
 
     var get = function(req, res){
         var query = {};
+        console.log(req.query);
+        
+        if(req.query.id){
+            query._id = req.query.id;
+        }
 
         /*if(req.query.genre){
             query.genre = req.query.genre;
