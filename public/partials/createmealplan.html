@@ -1,13 +1,9 @@
  <div ui-view="createmealplan">
-      <md-content>
-          <md-toolbar layout="row" class="md-whiteframe-z1">
-             <div class="md-toolbar-tools" layout="row" class="md-whiteframe-z1">
+        <md-subheader>
           	   	<h4>Create a meal plan</h4>
-             </div>
-        </md-toolbar>
+             </md-subheader>
         <form name="myForm">
           <md-datepicker name="dateField" ng-model="vm.mealPlanDate" md-placeholder="Enter date" required md-date-filter="vm.onlySunday"></md-datepicker>
           <md-button class="md-raised md-primary" ng-click="vm.createMealPlan()" ng-disabled="myForm.dateField.$invalid">Create</md-button>
         </form>
-      </md-content>
 </div>

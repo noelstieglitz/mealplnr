@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html>
   <head>
+        <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no" />
     <script src="/bower_components/angular/angular.js"></script>
     <script src="/bower_components/angular-ui-router/release/angular-ui-router.js"></script>
     <script src="/bower_components/angular-animate/angular-animate.js"></script>
@@ -12,21 +16,49 @@
     <link rel="stylesheet" href="/bower_components/angular-material-icons/angular-material-icons.css" />
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="/content/css/site.css" />
+       <style type="text/css">
+        /**
+         * Hide when Angular is not yet loaded and initialized
+         */
+        [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+          display: none !important;
+        }
+    </style>
     <script src="/app/app.js"></script>
     <script src="/app/MealPlan/MealPlanController.js"></script>
     <script src="/app/MealPlan/MealPlanDetailController.js"></script>
     <script src="/app/MealPlan/mealPlanService.js"></script>
   </head>
   <body ng-app="MealPlnr" layout="row" ng-cloak>
-     <div flex layout="column" tabIndex="-1" role="main" class="md-whiteframe-z2">
-      <md-toolbar layout="row" class="md-whiteframe-z1">
-        <md-button class="menu" ng-click="ul.toggleList()" aria-label="Show Menu">
-          <ng-md-icon icon="menu"></ng-md-icon>
-        </md-button>
-        <h1>Meal Plnr</h1>
-        <!--<h4>Nobody has time for vowels and meal planning.</h4>-->
-      </md-toolbar>
-      <div ui-view></div>
-     </div>
+  <md-sidenav class="site-sidenav md-sidenav-left md-whiteframe-z2"
+                md-component-id="left"
+                md-is-locked-open="$mdMedia('gt-sm')">
+    <md-toolbar class="md-whiteframe-z1">
+      <h1>TODO Menu</h1>
+    </md-toolbar>
+    <md-list>
+      <!--<md-list-item ng-repeat="it in ul.users">
+          <md-button ng-click="ul.selectUser(it)" ng-class="{'selected' : it === ul.selected }">
+            <md-icon md-svg-icon="{{it.avatar}}" class="avatar"></md-icon>
+            {{it.name}}
+          </md-button>
+      </md-list-item>-->
+    </md-list>
+  </md-sidenav>
+  
+   <div flex layout="column" tabIndex="-1" role="main" class="md-whiteframe-z2">
+
+    <md-toolbar layout="row" class="md-whiteframe-z1">
+      <md-button class="menu" hide-gt-sm ng-click="ul.toggleList()" aria-label="Show User List">
+        <ng-md-icon icon="menu" ></ng-md-icon>
+      </md-button>
+      <h1>Meal Plnr</h1>
+    </md-toolbar>
+
+    <md-content flex id="content">
+          <div ui-view></div>
+     </md-content>
+
+  </div>
   </body>
 </html>

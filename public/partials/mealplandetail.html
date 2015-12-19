@@ -1,26 +1,24 @@
  <div ui-view="mealplandetail">
-   <md-toolbar>
-        <div class="md-toolbar-tools">
+   <md-subheader>
           <h4>Meals for {{vm.week}}</h4>
-        </div>
-    </md-toolbar>
+   </md-subheader>
     <div class="main">
     <md-content class="md-padding" layout="column" layout-wrap="" layout-align="center start" layout-xs="column">
     <div flex="50" flex-sm="100" flex-xs="100" layout="column">
-      <md-card>
+      <md-card ng-repeat="meal in vm.meals">
         <md-card-title>
           <md-card-title-text>
-            <span class="md-headline">Food</span>
-            <span class="md-subhead">details</span>
-            <span class="md-subhead">details</span>
-            <span class="md-subhead">details</span>
+            <span class="md-headline">{{meal.recipe.title}}</span>
+            <span class="md-subhead">Prep Time: {{meal.recipe.prepTime}}</span>
+            <span class="md-subhead">Cook Time: {{meal.recipe.cookTime}}</span>
+            <span class="md-subhead">Total Time: {{meal.recipe.totalTime}}</span>
           </md-card-title-text>
           <md-card-title-media>
             <div class="md-media-sm card-media"></div>
           </md-card-title-media>
         </md-card-title>
         <md-card-actions layout="row" layout-align="end center">
-          <md-button>Meh</md-button>
+          <md-button>Nope</md-button>
         </md-card-actions>
       </md-card>
     </div>
