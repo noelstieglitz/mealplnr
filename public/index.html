@@ -45,20 +45,18 @@
       </md-list-item>-->
     </md-list>
   </md-sidenav>
-  
    <div flex layout="column" tabIndex="-1" role="main" class="md-whiteframe-z2">
-
     <md-toolbar layout="row" class="md-whiteframe-z1">
-      <md-button class="menu" hide-gt-sm ng-click="ul.toggleList()" aria-label="Show User List">
+      <md-button class="menu" hide-gt-sm ng-click="ul.toggleList()" aria-label="Show Menu">
         <ng-md-icon icon="menu" ></ng-md-icon>
       </md-button>
-      <h1>Meal Plnr</h1>
+      <h1><ng-md-icon style="margin-right:.2em" icon="restaurant_menu" ></ng-md-icon>Meal Plnr</h1>
     </md-toolbar>
-
-    <md-content flex id="content">
-          <div ui-view></div>
-     </md-content>
-
+    <md-content> <!--For some reason, the inner md-content needs to be inside antoerh md-contect to be scrollable-->
+        <md-content flex id="content">
+            <div ui-view></div>
+        </md-content>
+    </md-content>
   </div>
   </body>
 </html>

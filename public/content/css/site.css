@@ -11,9 +11,9 @@ html, body {
 .menu {
   background-color: transparent;
   border: none;
-  height: 38px;
-  margin: 16px;
-  width: 36px;
+  height: 24px;
+  margin: 10px;
+  width: 24px;
 }
 
 md-toolbar h1 {

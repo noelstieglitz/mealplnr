@@ -1,9 +1,10 @@
  <div ui-view="mealplandetail">
    <md-subheader>
-          <h4>Meals for {{vm.week}}</h4>
+          Meals for {{vm.week}}
    </md-subheader>
     <div class="main">
     <md-content class="md-padding" layout="column" layout-wrap="" layout-align="center start" layout-xs="column">
+    <div><md-button><ng-md-icon icon="add_shopping_cart"></ng-md-icon>Add All</md-button></div>
     <div flex="50" flex-sm="100" flex-xs="100" layout="column">
       <md-card ng-repeat="meal in vm.meals">
         <md-card-title>
@@ -18,7 +19,7 @@
           </md-card-title-media>
         </md-card-title>
         <md-card-actions layout="row" layout-align="end center">
-          <md-button>Nope</md-button>
+          <md-button class="md-mini" ng-click="vm.replaceMeal(meal)"><ng-md-icon icon="autorenew" ></ng-md-icon>Replace</md-button>
         </md-card-actions>
       </md-card>
     </div>

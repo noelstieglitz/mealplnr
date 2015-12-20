@@ -1,13 +1,13 @@
 var app = angular.module('MealPlnr', [ 'ui.router', 'ngAnimate', 'ngMaterial', 'ngMdIcons']);
 
-app.config(['$stateProvider', '$urlRouterProvider', routeFunction]);
+app.config(['$stateProvider', '$urlRouterProvider', '$mdThemingProvider', '$mdIconProvider', appConfig]);
 
 app.run(function($rootScope) {
   $rootScope.$on("$stateChangeError", console.log.bind(console));
 });
 
 
-function routeFunction($stateProvider, $urlRouterProvider){
+function appConfig($stateProvider, $urlRouterProvider, $mdThemingProvider, $mdIconProvider){
 	$urlRouterProvider.otherwise('/mealplan/create');
 
 	$stateProvider
@@ -28,4 +28,8 @@ function routeFunction($stateProvider, $urlRouterProvider){
                 }]
             }
     	});
+        // 
+        //  $mdThemingProvider.theme('default')
+        //                   .primaryPalette('deep-purple')
+        //                   .accentPalette('lime');
 }
