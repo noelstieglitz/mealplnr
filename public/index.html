@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
-  <head>
-        <meta charset="utf-8">
+
+<head>
+    <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="description" content="">
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no" />
@@ -16,12 +17,18 @@
     <link rel="stylesheet" href="/bower_components/angular-material-icons/angular-material-icons.css" />
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="/content/css/site.css" />
-       <style type="text/css">
+    <style type="text/css">
         /**
          * Hide when Angular is not yet loaded and initialized
          */
-        [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
-          display: none !important;
+        
+        [ng\:cloak],
+        [ng-cloak],
+        [data-ng-cloak],
+        [x-ng-cloak],
+        .ng-cloak,
+        .x-ng-cloak {
+            display: none !important;
         }
     </style>
     <script src="/app/app.js"></script>
@@ -29,52 +36,53 @@
     <script src="/app/MealPlan/MealPlanDetailController.js"></script>
     <script src="/app/MealPlan/mealPlanService.js"></script>
     <script src="/app/SideNav/SideNavController.js"></script>
-  </head>
-  <body ng-app="MealPlnr" layout="column" ng-cloak>
-      <div name="head">
-           <md-toolbar layout="row" class="md-whiteframe-z1">
-                <md-button class="menu" hide-gt-sm ng-click="ul.toggleList()" aria-label="Show Menu">
-                    <ng-md-icon icon="menu" ></ng-md-icon>
-                </md-button>
-                <h1><ng-md-icon style="margin-right:.2em" icon="restaurant_menu" ></ng-md-icon>Meal Plnr</h1>
-            </md-toolbar>
-      </div>
-      <div name="navandmain" layout="row">
-         <div flexbox ui-view="sidenav" ng-controller="SideNavController as vm">
-        <md-sidenav class="site-sidenav md-sidenav-left md-whiteframe-z2"
-                        md-component-id="left"
-                        md-is-locked-open="$mdMedia('gt-sm')">
-            <md-list>
-                <md-list-item>
-                    <md-button ng-click="vm.goTo('createmealplan')">
-                        <ng-md-icon icon="create"></ng-md-icon>
-                        New
-                    </md-button>
-                </md-list-item>
-                <md-list-item>
-                    <md-button ng-click="vm.goTo('mealplanlist')" >
-                        <ng-md-icon icon="view_list"></ng-md-icon>
+    <script src="/app/TopNav/TopNavController.js"></script>
+</head>
+
+<body ng-app="MealPlnr" layout="column" ng-cloak>
+    <div name="head" ng-controller="TopNavController as vm">
+        <md-toolbar layout="row" class="md-whiteframe-z1">
+            <md-button class="menu" hide-gt-sm ng-click="vm.toggleMenu()" aria-label="Show Menu">
+                <ng-md-icon icon="menu"></ng-md-icon>
+            </md-button>
+            <h1><ng-md-icon style="margin-right:.2em" icon="restaurant_menu" ></ng-md-icon>Meal Plnr</h1>
+        </md-toolbar>
+    </div>
+    <div name="navandmain" layout="row">
+        <div flexbox ui-view="sidenav" ng-controller="SideNavController as vm">
+            <md-sidenav class="site-sidenav md-sidenav-left md-whiteframe-z2" md-component-id="left" md-is-locked-open="$mdMedia('gt-sm')">
+                <md-list>
+                    <md-list-item>
+                        <md-button ng-click="vm.goTo('createmealplan')">
+                            <ng-md-icon icon="create"></ng-md-icon>
+                            New
+                        </md-button>
+                    </md-list-item>
+                    <md-list-item>
+                        <md-button ng-click="vm.goTo('mealplanlist')">
+                            <ng-md-icon icon="view_list"></ng-md-icon>
                             Meal Plans
-                    </md-button>
-                </md-list-item>
-                <md-list-item>
-                    <md-button ng-click="vm.goTo('shoppinglist')" >
-                        <ng-md-icon icon="shopping_cart"></ng-md-icon>
-                        Shopping List
-                    </md-button>
-                </md-list-item>
-            </md-list>
-    </md-sidenav>
-  </div>
-   <div flex tabIndex="-1" role="main" class="md-whiteframe-z2">
-    <md-content> <!--For some reason, the inner md-content needs to be inside antoerh md-contect to be scrollable-->
-        <md-content flex id="content">
-            <div ui-view></div>
-        </md-content>
-    </md-content>
-      </div>
-      </div>
-      </body>
-      
-      
+                        </md-button>
+                    </md-list-item>
+                    <md-list-item>
+                        <md-button ng-click="vm.goTo('shoppinglist')">
+                            <ng-md-icon icon="shopping_cart"></ng-md-icon>
+                            Shopping List
+                        </md-button>
+                    </md-list-item>
+                </md-list>
+            </md-sidenav>
+        </div>
+        <div flex tabIndex="-1" role="main" class="md-whiteframe-z2">
+            <md-content>
+                <!--For some reason, the inner md-content needs to be inside antoerh md-contect to be scrollable-->
+                <md-content flex id="content">
+                    <div ui-view></div>
+                </md-content>
+            </md-content>
+        </div>
+    </div>
+</body>
+
+
 </html>

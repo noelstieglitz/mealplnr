@@ -6,7 +6,7 @@ var recipeModel = new Schema({
     url: {
         type: String
     },
-    title:{
+    title: {
         type: String
     },
     prepTime: {
