@@ -58,20 +58,27 @@ var routes = function(Recipe){
         if(req.body._id){
             delete req.body._id;
         }
-
-        for(var p in req.body){
-            req.recipe[p] = req.body[p];
-        }
-
-        req.recipe.save(function(err){
+        
+         Recipe.findById(req.params.recipeId, function(err, recipe){
             if(err){
                 res.status(500).send(err);
+            } else if (recipe._doc) {
+                for(var p in req.body){
+                    recipe[p] = req.body[p];
+                }
+                
+                 recipe.save(function(err){
+                    if(err){
+                        res.status(500).send(err);
+                    } else {
+                        res.json(recipe);
+                    }
+
+                });
             } else {
-                res.json(req.recipe);
+                res.status(404).send('no recipe found');
             }
-
         });
-
     })
     .delete(function(req, res){
         req.recipe.remove(function(err){

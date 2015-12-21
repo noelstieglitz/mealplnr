@@ -29,6 +29,9 @@ var recipeModel = new Schema({
     vegetarian: {
         type: Boolean,
         default: false
+    },
+    image: {
+        type: String
     }
 });
 

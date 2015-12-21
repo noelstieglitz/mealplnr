@@ -7,6 +7,7 @@
     <div><md-button><ng-md-icon icon="add_shopping_cart"></ng-md-icon>Add All</md-button></div>
     <div flex="50" flex-sm="100" flex-xs="100" layout="column">
       <md-card ng-repeat="meal in vm.meals">
+        <img ng-src="{{meal.recipe.image}}"/>
         <md-card-title>
           <md-card-title-text>
             <span class="md-headline">{{meal.recipe.title}}</span>
@@ -14,10 +15,9 @@
             <span class="md-subhead">Cook Time: {{meal.recipe.cookTime}}</span>
             <span class="md-subhead">Total Time: {{meal.recipe.totalTime}}</span>
           </md-card-title-text>
-          <md-card-title-media>
-            <div class="md-media-sm card-media"></div>
-          </md-card-title-media>
         </md-card-title>
+        <md-card-content>
+        </md-card-content>
         <md-card-actions layout="row" layout-align="end center">
           <md-button class="md-mini" ng-click="vm.replaceMeal(meal)"><ng-md-icon icon="autorenew" ></ng-md-icon>Replace</md-button>
         </md-card-actions>

@@ -27,7 +27,13 @@ function appConfig($stateProvider, $urlRouterProvider, $mdThemingProvider, $mdIc
                 return mealPlanService.getById($stateParams.mealPlanId); // not then
                 }]
             }
-    	});
+    	})
+        .state('sidenav', {
+            url: '/sidenav',
+            controller: 'SideNavController',
+            controllerAs: 'vm',
+            templateUrl: 'partials/sidenav.html'
+        });
         // 
         //  $mdThemingProvider.theme('default')
         //                   .primaryPalette('deep-purple')
