@@ -1,0 +1,24 @@
+{
+  "name": "MealPlnr",
+  "description": "",
+  "main": "app.js",
+  "license": "ISC",
+  "homepage": "https://github.com/noelstieglitz/mealplnr",
+  "moduleType": [],
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-animate": "^1.5.2",
+    "angular-aria": "^1.5.2",
+    "angular-material-icons": "^0.7.0",
+    "angular-material": "^1.0.6",
+    "moment": "^2.12.0",
+    "angular-ui-router": "^0.2.18"
+  }
+}
