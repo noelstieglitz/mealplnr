@@ -1,25 +1,19 @@
 var app = angular.module('MealPlnr', ['ui.router', 'ngAnimate', 'ngMaterial', 'ngMdIcons']);
 
 app.config(['$stateProvider', '$urlRouterProvider', '$mdThemingProvider', '$mdIconProvider', appConfig]);
-
-app.run(function ($rootScope) {
-    $rootScope.$on("$stateChangeError", console.log.bind(console));
-});
-
-
 function appConfig($stateProvider, $urlRouterProvider, $mdThemingProvider, $mdIconProvider) {
     $urlRouterProvider.otherwise('/mealplan/create');
 
     $stateProvider
         .state('createmealplan', {
             url: '/mealplan/create',
-            templateUrl: 'partials/createmealplan.html',
+            templateUrl: 'app/mealplan/createmealplan.html',
             controller: 'MealPlanController',
             controllerAs: 'vm'
         })
         .state('mealplandetail', {
             url: "/mealplan/:mealPlanId",
-            templateUrl: 'partials/mealplandetail.html',
+            templateUrl: 'app/mealplan/mealplandetail.html',
             controller: 'MealPlanDetailController',
             controllerAs: 'vm',
             resolve: {
@@ -34,3 +28,7 @@ function appConfig($stateProvider, $urlRouterProvider, $mdThemingProvider, $mdIc
     //                   .primaryPalette('deep-purple')
     //                   .accentPalette('lime');
 }
+
+app.run(['$rootScope',function ($rootScope) {
+    $rootScope.$on("$stateChangeError", console.log.bind(console));
+}]);

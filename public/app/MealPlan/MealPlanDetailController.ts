@@ -8,7 +8,6 @@
         var vm = this;
         vm.meals = [];
         angular.forEach(mealPlan.meals, function(m, i){
-            debugger;
             this[i] = m;
             if(m.veggie && m.carb){
                 this[i].servedWithText = "Served with " + m.veggie + " and " + m.carb;
